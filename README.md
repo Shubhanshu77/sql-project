@@ -21,35 +21,37 @@ The data for this project is sourced from the Kaggle dataset:
 ## Schema
 
 ```sql
-DROP TABLE IF EXISTS netflix;
-CREATE TABLE netflix
-(
-    show_id      VARCHAR(5),
-    type         VARCHAR(10),
-    title        VARCHAR(250),
-    director     VARCHAR(550),
-    casts        VARCHAR(1050),
-    country      VARCHAR(550),
-    date_added   VARCHAR(55),
-    release_year INT,
-    rating       VARCHAR(15),
-    duration     VARCHAR(15),
-    listed_in    VARCHAR(250),
-    description  VARCHAR(550)
-);
-```
 
 ## Business Problems and Solutions
 
 ### 1. Count the Number of Movies vs TV Shows
+drop table if exists netflix;
+create table netflix
+(
+  show_id varchar (10),
+  type varchar (10),
+  title varchar (150),
+  director varchar(208),
+  casts varchar(1000),
+  country	varchar(150),
+  date_added varchar (50),
+  release_year int,
+  rating	varchar(10),
+  duration	varchar(10),
+  listed_in	varchar(100),
+  description varchar(250) 
+  );
 
-```sql
-SELECT 
-    type,
-    COUNT(*)
-FROM netflix
-GROUP BY 1;
-```
+
+select * from netflix
+
+select count(*) show_id
+from netflix
+
+select distinct 
+    type
+	from netflix
+
 
 **Objective:** Determine the distribution of content types on Netflix.
 
